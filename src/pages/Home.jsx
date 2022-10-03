@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Home = () => {
   return (
   //홈페이지 ( MainPage )
-  <div>
+  <HomeStyled>
 
     <div>
       <Navigation />
@@ -38,9 +38,15 @@ const Home = () => {
       />
     </div>
 
-  </div>
+  </HomeStyled>
   );
 };
+
+const HomeStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const ThemeSection = styled.div`
   display:flex;
