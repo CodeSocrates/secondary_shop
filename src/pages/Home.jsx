@@ -1,6 +1,7 @@
 import Navigation from '../components/Navigation';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
+import styled from 'styled-components';
 
 const Home = () => {
   return (
@@ -9,8 +10,11 @@ const Home = () => {
 
     <div>
       <Navigation />
-      <ThemeButton themeName={"#겨울 방한템"} />
-      <ThemeButton themeName={"#따순 머그컵"} />
+      <ThemeSection>
+        <ThemeButton themeName={"#겨울 방한템"} />
+        <ThemeButton themeName={"#따순 머그컵"} />
+      </ThemeSection>
+      <GrayLine />
     </div>
 
     <div>
@@ -37,5 +41,17 @@ const Home = () => {
   </div>
   );
 };
+
+const ThemeSection = styled.div`
+  display:flex;
+  gap:12px;
+  padding: 43px 24px 40px;
+`;
+
+const GrayLine = styled.div`
+  height: 8px;
+  background: #EEEEEE;
+  bottom: 3px;
+`;
 
 export default Home;
