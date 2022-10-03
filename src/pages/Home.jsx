@@ -2,8 +2,24 @@ import Navigation from '../components/Navigation';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
+import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
+import { useState } from 'react';
 
 const Home = () => {
+  // 목데이터의 1번테마를 불러올건지 2번테마를 불러올건지 결정하는 state
+  // state to choose reading which theme from mockData
+  const [products, setProducts] = useState();
+
+  // 특정 테마버튼이 클릭되면 어떤 테마의 목데이터의 값을 불러올 지 스테이트를 설정해주는 함수
+  // function to set state if themeButton is clicked
+  const onClickThemeButton = (themeId) => {
+    if (themeId === "mug") {
+      setProducts(mockTheme1Products);
+    } else if (themeId === "summer") {
+      setProducts(mockTheme2Products);
+    }
+  };
+
   return (
   //홈페이지 ( MainPage )
   <HomeStyled>
@@ -11,31 +27,43 @@ const Home = () => {
     <div>
       <Navigation />
       <ThemeSection>
-        <ThemeButton themeName={"#겨울 방한템"} />
-        <ThemeButton themeName={"#따순 머그컵"} />
+        <ThemeButton 
+          themeName={"#따순 머그컵"} 
+          onClick={() => onClickThemeButton("mug")}
+          {/* 따순 머그컵 테마버튼 클릭 시 머그 값을 함수로 보냄
+              Send property to onClickThemeButton if theme button is clicked */}
+        />
+        <ThemeButton 
+          themeName={"#여름 더워요"} 
+          onClick={() => onClickThemeButton("summer")}
+        />
       </ThemeSection>
       <GrayLine />
     </div>
 
     <div>
-      {/* Product Card */}
-      <ProductCard 
-        name="비숑 블랙 머그잔"
-        description="쌀쌀한 날씨에 따뜻한 우유, 커피 한잔하기 좋은 블랙 & 화이트 비숑 머그잔입니다."
-        thumbnail="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product1.jpg"
-      />
+      {/* Product Card 
+          mockData list를 화면에 노출시키는 구문
+          JS의 map() 문법
+          목데이타의 값을 map() 문법을 통해 추출하여 ProductCard 컴포넌트로 전달
+          extract mockData by using map() and send it to ProductCard component
+          스테이트에 아무 값도 할당되지 않을 경우 div 출력
+          if state is undefined, print div tag.
+          */}
 
-      <ProductCard 
-        name="가열 보온 티코스터 온열 원터치 컵 받침대"
-        description="언제나 따뜻하게 최대 12시간 동안 최대 60도의 온도로 따듯한 차를 즐길 수 있습니다."
-        thumbnail="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product2.jpg"
-      />
+      {products ? (
+        products.map((product) => (
+          <ProductCard 
+            key={product.id}
+            name={product.name}
+            description={product.description}
+            thumbnail={product.thumbnail}
+          />
+      ))
+    ) : (
+      <div>테마를 선택해주세요</div>
+    )}
 
-      <ProductCard 
-        name="벨루즈까사 솜사탕 파스텔 머그 4종 세트"
-        description="솜사탕처럼 부드러운 쉐입에 스트라이프 조각이 더해져 심플하면서도 세련된 파스텔 컬러의 머그"
-        thumbnail="https://raw.githubusercontent.com/congchu/coment-shop-server/master/assets/images/product3.jpg"
-      />
     </div>
 
   </HomeStyled>
