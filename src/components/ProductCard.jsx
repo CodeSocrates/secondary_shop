@@ -1,4 +1,4 @@
-const ProductCard = (name, description, thumbnail) => {
+const ProductCard = ({name, description, thumbnail}) => {
   return(
   <div>
     <img 

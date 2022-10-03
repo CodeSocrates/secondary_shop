@@ -1,5 +1,5 @@
-const ThemeButton = ({ThemeName}) => {
-  return <div>{ThemeName}</div>
+const ThemeButton = ({themeName}) => {
+  return <div>{themeName}</div>
 }
 
 export default ThemeButton;
