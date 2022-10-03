@@ -24,14 +24,14 @@ const Home = () => {
   //홈페이지 ( MainPage )
   <HomeStyled>
 
+    {/* 따순 머그컵 테마버튼 클릭 시 머그 값을 함수로 보냄
+        Send property to onClickThemeButton if theme button is clicked */}
     <div>
       <Navigation />
       <ThemeSection>
         <ThemeButton 
           themeName={"#따순 머그컵"} 
           onClick={() => onClickThemeButton("mug")}
-          {/* 따순 머그컵 테마버튼 클릭 시 머그 값을 함수로 보냄
-              Send property to onClickThemeButton if theme button is clicked */}
         />
         <ThemeButton 
           themeName={"#여름 더워요"} 
