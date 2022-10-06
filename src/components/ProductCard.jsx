@@ -14,7 +14,7 @@ const ProductCard = ({name, description, thumbnail}) => {
 }
 
 const ProductCardStyled = styled.div`
-  padding: 40px 24px 0px;
+  padding: -40px 24px 0px;
 `;
 
 const ImgStyled = styled.img`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Navigation = () => {
   return(
     <>
-      <NavigationStyled>코멘토 쇼핑</NavigationStyled>
+      <NavigationStyled>유민몰</NavigationStyled>
       <GrayLine />
     </>
   )
@@ -11,10 +11,14 @@ const Navigation = () => {
 
 const NavigationStyled = styled.div`
   font-weight: 700;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 50px;
+  line-height: 20px;
 
-  padding: 20px 152px 17px 151px;
+  padding: 50px 0px 50px 500px;
+
+  color:white;
+  background-color: black;
+  width: 100%;
 `;
 
 const GrayLine = styled.div`

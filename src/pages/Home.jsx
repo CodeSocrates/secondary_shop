@@ -1,4 +1,5 @@
 import Navigation from '../components/Navigation';
+import MenuBar from '../components/MenuBar';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
@@ -27,18 +28,23 @@ const Home = () => {
     {/* 따순 머그컵 테마버튼 클릭 시 머그 값을 함수로 보냄
         Send property to onClickThemeButton if theme button is clicked */}
     <div>
-      <Navigation />
-      <ThemeSection>
-        <ThemeButton 
-          themeName={"#따순 머그컵"} 
-          onClick={() => onClickThemeButton("mug")}
-        />
-        <ThemeButton 
-          themeName={"#여름 더워요"} 
-          onClick={() => onClickThemeButton("summer")}
-        />
-      </ThemeSection>
-      <GrayLine />
+      <TopBar>
+        <Navigation />
+        <MenuBar />
+      </TopBar>
+      <ProductSection>
+        <ThemeSection>
+          <ThemeButton 
+            themeName={"생활용품"} 
+            onClick={() => onClickThemeButton("mug")}
+          />
+          <ThemeButton 
+            themeName={"잡화"} 
+            onClick={() => onClickThemeButton("summer")}
+          />
+        </ThemeSection>
+        <GrayLine />
+      </ProductSection>
     </div>
 
     <div>
@@ -78,14 +84,24 @@ const HomeStyled = styled.div`
 
 const ThemeSection = styled.div`
   display:flex;
+  flex-direction: column;
   gap:12px;
-  padding: 43px 24px 40px;
+  padding: 43px 70px 40px;
 `;
 
 const GrayLine = styled.div`
   height: 8px;
   background: #EEEEEE;
   bottom: 3px;
+`;
+
+const TopBar = styled.div`
+  display:flex;
+  flex-direction: row;
+`;
+
+const ProductSection = styled.div`
+  display:flex;
 `;
 
 export default Home;

@@ -5,7 +5,7 @@ const ThemeButton = ({ themeName, onClick }) => {
 }
 
 const ThemeButtonStyled = styled.div`
-  background: rgba(0, 0, 0, 0.5);
+  background: black;
   border-radius: 10px;
 
   color: #FFFFFF;
