@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const ProductCard = ({name, description, thumbnail}) => {
+const ProductCard = ({name, description, thumbnail, onClick}) => {
   return(
-  <ProductCardStyled>
+  <ProductCardStyled onClick={onClick}>
     <ImgStyled 
     width="200"
     src={thumbnail}

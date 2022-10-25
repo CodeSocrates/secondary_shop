@@ -19,7 +19,7 @@ const NavigationStyled = styled.div`
 
 const GrayLine = styled.div`
   height: 1px;
-  background: #EEEEEE;
+  background: gray;
 
 `;
 

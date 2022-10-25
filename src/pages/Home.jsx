@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
+
 import Navigation from '../components/Navigation';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
-import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
-import { useEffect, useState } from 'react';
 
 const Home = () => {
   // 목데이터의 1번테마를 불러올건지 2번테마를 불러올건지 결정하는 state
@@ -11,6 +13,7 @@ const Home = () => {
   // 다시 렌더링(UI 그리기) 하는 함수
   // function to rerender(paint UI)
   const [products, setProducts] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     //useEffect() : 조건에 의해서 수행되는 함수
@@ -66,6 +69,7 @@ const Home = () => {
       {products ? (
         products.map((product) => (
           <ProductCard 
+            onClick={() => navigate(`product/${product.id}`)}
             key={product.id}
             name={product.name}
             description={product.description}
