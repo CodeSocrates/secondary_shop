@@ -4,7 +4,6 @@ import { getProductDetail } from '../data/mockData';
 import styled from 'styled-components';
 
 import Navigation from '../components/Navigation'
-import Review from '../components/Review';
 
 const ProductDetail = () => {
   let {productId} = useParams(); // productId를 받아오는 로직(logic to receive parameter productId)
@@ -60,8 +59,7 @@ const ProductDetail = () => {
         alt="제품 상세 정보"
         width="400" />
       ) : (
-        <div> </div>
-        <div>우리동네 음악대장 : 개별로에요</div>
+        <div>리뷰를 위한 페이지 입니다.</div>
       )}
 
     </ProductDetailStyled>
