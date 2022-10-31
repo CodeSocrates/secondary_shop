@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
-
 import Navigation from '../components/Navigation';
 import ThemeButton from '../components/ThemeButton';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
 import {mockTheme1Products, mockTheme2Products} from "../data/mockData"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Home = () => {
   // 목데이터의 1번테마를 불러올건지 2번테마를 불러올건지 결정하는 state
