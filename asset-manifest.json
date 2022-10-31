@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/secondary_shop/static/css/main.073c9b0a.css",
+    "main.js": "/secondary_shop/static/js/main.b7dfc9c9.js",
+    "index.html": "/secondary_shop/index.html",
+    "main.073c9b0a.css.map": "/secondary_shop/static/css/main.073c9b0a.css.map",
+    "main.b7dfc9c9.js.map": "/secondary_shop/static/js/main.b7dfc9c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b7dfc9c9.js"
+  ]
+}
