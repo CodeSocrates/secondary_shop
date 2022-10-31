@@ -27,7 +27,7 @@ const ProductDetail = () => {
     setTimeout(() => {
       setDetail("detail");
     }, 100);
-  }, []);
+  }, [productId]);
   
   return(
     <ProductDetailStyled>
