@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { getProductDetail } from '../data/mockData';
 import styled from 'styled-components';
-
+import * as storage from '../utils/storage'
 import Navigation from '../components/Navigation'
+
+const navigate = useNavigate();
 
 const ProductDetail = () => {
   let {productId} = useParams(); // productId를 받아오는 로직(logic to receive parameter productId)
@@ -17,6 +19,13 @@ const ProductDetail = () => {
     else if(value === "review") {
       setDetail("review");
     }
+  }
+
+  const onClickAddBucket = () => {
+    // 로컬스토리지로 장바구니에 아이템을 추가하는 로직
+    storage.addBucket(product);
+    // 장바구니 페이지로 이동하는 로직
+    navigate("/bucket");
   }
 
   useEffect(() => {
@@ -61,6 +70,9 @@ const ProductDetail = () => {
       ) : (
         <div>리뷰를 위한 페이지 입니다.</div>
       )}
+
+      <BtnAddBucket
+      onClick={onClickAddBucket}>장바구니에 담기</BtnAddBucket>
 
     </ProductDetailStyled>
   );
@@ -125,6 +137,20 @@ const DetailBtn = styled.button`
   color: #000000;
   border: 0;
   outline: 0;
+`;
+
+const BtnAddBucket = styled.button`
+  width: 400px;
+  height: 70px;
+  //position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  background: #24DBAF;
 `;
 
 
